@@ -1,5 +1,5 @@
 #pragma once
-#include <fmt/printf.h>
+#include <fmt/ostream.h>
 
 #include <cstdint>
 #include <cstdio>
@@ -9,7 +9,7 @@ namespace utils {
 template <typename... A>
 inline std::string format(std::string format, A&&... a) {
         std::ostringstream os;
-        ::fmt::fprintf(os, format, std::forward<A>(a)...);
+        fmt::print(os, format, std::forward<A>(a)...);
         return os.str();
 }
 

@@ -1,4 +1,5 @@
 #pragma once
+#include <optional>
 #include <unordered_map>
 
 #include "ipv4_addr.hpp"
