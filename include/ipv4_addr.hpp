@@ -44,7 +44,7 @@ public:
         void produce(uint8_t*& ptr) { utils::produce<uint32_t>(ptr, _ipv4); }
 
         friend std::ostream& operator<<(std::ostream& out, ipv4_addr_t ipv4) {
-                out << utils::format("%u.%u.%u.%u", (ipv4._ipv4 >> 24) & 0xFF,
+                out << utils::format("{}.{}.{}.{}", (ipv4._ipv4 >> 24) & 0xFF,
                                      (ipv4._ipv4 >> 16) & 0xFF, (ipv4._ipv4 >> 8) & 0xFF,
                                      (ipv4._ipv4 >> 0) & 0xFF);
                 return out;

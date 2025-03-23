@@ -21,14 +21,14 @@ inline static int run_cmd(std::string fmt, A&&... a) {
 }
 
 static int set_interface_route(std::string dev, std::string cidr) {
-        return run_cmd("ip route add dev %s %s", dev, cidr);
+        return run_cmd("ip route add dev {} {}", dev, cidr);
 }
 
 static int set_interface_address(std::string dev, std::string cidr) {
-        return run_cmd("ip address add dev %s local %s", dev, cidr);
+        return run_cmd("ip address add dev {} local {}", dev, cidr);
 }
 
-static int set_interface_up(std::string dev) { return run_cmd("ip link set dev %s up", dev); }
+static int set_interface_up(std::string dev) { return run_cmd("ip link set dev {} up", dev); }
 
 uint32_t ntoh(uint32_t value) {
         return (value & 0x000000FFU) << 24 | (value & 0x0000FF00U) << 8 |

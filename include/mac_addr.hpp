@@ -67,7 +67,7 @@ public:
         friend std::ostream&    operator<<(std::ostream&     out,
                                         const mac_addr_t& m) {
                 using u = uint32_t;
-                out << utils::format("%02X:%02X:%02X:%02X:%02X:%02X",
+                out << utils::format("{:X}:{:X}:{:X}:{:X}:{:X}:{:X}",
                                      u(m.mac[0]), u(m.mac[1]), u(m.mac[2]),
                                      u(m.mac[3]), u(m.mac[4]), u(m.mac[5]));
                 return out;
