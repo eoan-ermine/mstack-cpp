@@ -50,6 +50,7 @@ public:
                 listeners[fd]                        = listener;
                 auto& tcb_manager                    = tcb_manager::instance();
                 tcb_manager.listen_port(listener->local_info.value(), listener);
+                return 0;
         };
 
         int accept(int fd) {
@@ -87,6 +88,7 @@ public:
                 raw_packet r_packet =
                         std::move(socket->tcb.value()->receive_queue.pop_front().value());
                 r_packet.buffer->export_data(reinterpret_cast<uint8_t*>(buf), len);
+                return 0;
         }
 
         int write(int fd, char* buf, int& len) {
@@ -98,6 +100,7 @@ public:
                         std::make_unique<base_packet>(reinterpret_cast<uint8_t*>(buf), len);
                 raw_packet r_packet = {.buffer = std::move(out_buffer)};
                 socket->tcb.value()->send_queue.push_back(std::move(r_packet));
+                return 0;
         }
 };
 };  // namespace mstack

@@ -25,10 +25,12 @@ public:
                         std::copy(std::begin(other.mac), std::end(other.mac),
                                   std::begin(mac));
                 }
+                return *this;
         }
 
         mac_addr_t& operator=(mac_addr_t&& other) {
                 std::swap(mac, other.mac);
+                return *this;
         };
 
         mac_addr_t(std::array<uint8_t, 6> other) {

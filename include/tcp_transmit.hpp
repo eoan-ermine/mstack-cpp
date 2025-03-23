@@ -44,6 +44,8 @@ public:
                 if (in_tcp.ACK == 1) {
                         return true;
                 }
+
+                return false;
         }
 
         static bool tcp_handle_listen_state(std::shared_ptr<tcb_t> in_tcb,
@@ -336,6 +338,8 @@ public:
                                         }
                                 }
                 }
+
+                return false;
         }
 
         static void tcp_in(std::shared_ptr<tcb_t> in_tcb, tcp_packet_t& in_packet) {

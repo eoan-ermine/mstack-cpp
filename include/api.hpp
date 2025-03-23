@@ -19,6 +19,7 @@ int init_logger(int argc, char* argv[]) {
 
         gflags::ParseCommandLineFlags(&argc, &argv, true);
         google::InitGoogleLogging(argv[0]);
+        return 0;
 }
 
 void init_stack(int argc, char* argv[]) {

@@ -43,5 +43,6 @@ std::string state_to_string(int state) {
                 case TCP_TIME_WAIT:
                         return "TCP_TIME_WAIT";
         }
+        return "UNKNOWN";
 }
 };  // namespace mstack
